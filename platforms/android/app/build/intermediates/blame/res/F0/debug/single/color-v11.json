@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\user\\phonegap\\cipy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\user\\.android\\build-cache\\5bdb713fbe34cc097a8caf81f74b39c11a3c3c96\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\phonegap\\cipy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\user\\.android\\build-cache\\5bdb713fbe34cc097a8caf81f74b39c11a3c3c96\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "C:\\Users\\user\\phonegap\\cipy\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeF0DebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 57,
+                    "endOffset": 108
+                },
+                "from": {
+                    "file": "C:\\Users\\user\\.android\\build-cache\\a7b708e6102e0272ab1e2f57bf68643ed76ecbbd\\output\\res\\values-w820dp-v13\\values-w820dp-v13.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 57,
+                        "endOffset": 108
+                    }
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\a7b708e6102e0272ab1e2f57bf68643ed76ecbbd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="912812cca1fdace3ef9ba9c0a7081db4155767d5">
+        <dex dex="C:\Users\user\phonegap\cipy\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_6f90fa08d0e8f2bfae3e7c0ea2756b5e46bd24ec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\f2cb7fa6b3220060cd9214f25252cadb7095444e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="cd3872a778741ba6ef9d5452e122a54d16b0564f">
+        <dex dex="C:\Users\user\phonegap\cipy\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_81f839431fad7a7817e494166a6d2c584fef2581.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\861c115659b63873fd44301231e8f5a4c212daed\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="67070b6d74d76c40032b857e9fcf25b196fd07f5">
+        <dex dex="C:\Users\user\phonegap\cipy\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_6c2d741df6d0b0ff699303295712458a0cb65b52.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\ab56dd2268f9878bd78374f5f2cae812ea1b1010\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="9001cb8dbd0c0f46e73929f0b0667c00c2835880">
+        <dex dex="C:\Users\user\phonegap\cipy\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_3d95a7ae87d6e158bc2c0e288aa8549ddc2d567d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\8be172a6e856e9175f4a635de4935c24bc18960d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="a973d2e002f236d63e4b0b3bb95454b2ed4dc790">
+        <dex dex="C:\Users\user\phonegap\cipy\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_ae36cdda9562d7f122ec53902c11e2c7b290b8a3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\e9b5db5b4a23d620dc779edea7720659d06b5157\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="bb5e99e8a8b94d66179ccbf5f2fbe41ba084fbe9">
+        <dex dex="C:\Users\user\phonegap\cipy\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_474d505e98da9436b640ccb0707b4910c77390e9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\29b70cda02d7c7d991e9bef4273abafd2eb3234f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="23e24cb11d199bb64e56968563bb6ea219204cec">
+        <dex dex="C:\Users\user\phonegap\cipy\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_a4dd240aca1f92ba49531785c92a1f953cddd8be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\e0cf950a6b182ffab02ee1a2f4ccad8fb84aa34e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="31ecd0832f76d83defcff7f8b395008bf3b153bd">
+        <dex dex="C:\Users\user\phonegap\cipy\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_6ffb623badee55f0d3e975b314a0177de29eb04f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\7797c09d2eb8a6df9859a1650f8fe3294cc4a0f1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="746274223beb11b1cda7854d7eec3038695c2c93">
+        <dex dex="C:\Users\user\phonegap\cipy\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_93d0703397c6e2268a9547d0a21fe2368521bf76.jar" />
+    </item>
+
+</items>

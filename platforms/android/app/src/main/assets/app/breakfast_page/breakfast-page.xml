@@ -1,0 +1,91 @@
+<Page
+    loaded="loaded"
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns:nsDrawer="nativescript-pro-ui/sidedrawer"
+    xmlns:myDrawer="shared/my-drawer"
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <!-- 
+        Use the NavigationButton as a side-drawer button in Android because ActionItems are shown on the right side of the ActionBar
+        -->
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+        <!-- 
+        Use the ActionItem for IOS with position set to left. Using the NavigationButton as a side-drawer button in iOS is not possible, because its function is to always navigate back in the application.
+        -->
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Breakfast"></Label>
+    </ActionBar>
+
+    <!--
+    RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+    Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+    http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
+    The RadSideDrawer component is designed to be used as a root element to the <Page> and
+    it shouldn't have any other siblings other than the <ActionBar> component.
+    -->
+    <nsDrawer:RadSideDrawer id="sideDrawer" showOverNavigation="true">
+        <!--
+        Use the RadSideDrawer.drawerTransition component to change the open/close animation of the drawer.
+        -->
+        <nsDrawer:RadSideDrawer.drawerTransition>
+            <nsDrawer:SlideInOnTopTransition/>
+        </nsDrawer:RadSideDrawer.drawerTransition>
+
+        <!--
+        Use the RadSideDrawer.drawerContent component to display the content of the app drawer on this page.
+        Always wrap content in a layout component.
+        -->
+        <nsDrawer:RadSideDrawer.drawerContent>
+            <StackLayout>
+                <!--
+                Use {N} custom components to reuse UI across your mobile app.
+                The MyDrawer custom component defined in "/shared/my-drawer" holds the contents of the app drawer.
+                Learn more about custom components and how they can be used in this documentation article:
+                http://docs.nativescript.org/ui/basics#custom-components
+                -->
+                <myDrawer:MyDrawer selectedPage="Breakfast"/>
+            </StackLayout>
+        </nsDrawer:RadSideDrawer.drawerContent>
+
+        <!--
+        Use the RadSideDrawer.mainContent component to display the content of the page when you have an app drawer.
+        Always wrap content in a layout component.
+        -->
+        <nsDrawer:RadSideDrawer.mainContent>
+            <GridLayout columns="*,6*,*">
+                <GridLayout class="pre_page" col="0" >
+                    <Label text="&#xf100;" class = "fa" />
+                </GridLayout>             
+                <GridLayout class="page-content" col="1" id="swipable">                
+                    <ListView items="{{ recipeList }}" id="recipeList" loadMoreItems="loadMoreRecipes" >
+                        <ListView.itemTemplate>
+                            <GridLayout columns="*" rows="*,*">
+                                <Image src="{{ img_src }}" col="0" row="0"></Image>
+                                <GridLayout columns="*,*" rows="*,*" col="0" row="1" >
+                                    <Label text="{{ recipe_name }}" col="0" row="0"/>
+                                    <Label text="{{ user_name }}" col="0" row="1"/>
+                                    <StackLayout orientation="horizontal" col="1" row="0">
+                                        <Label text="{{ star1 }}" class = "fa" />
+                                        <Label text="{{ star2 }}" class = "fa" />
+                                        <Label text="{{ star3 }}" class = "fa" />
+                                        <Label text="{{ star4 }}" class = "fa" />
+                                        <Label text="{{ star5 }}" class = "fa" />
+                                    </StackLayout>
+                                </GridLayout>
+                            </GridLayout>
+                        </ListView.itemTemplate>
+                    </ListView>
+                </GridLayout>
+                <GridLayout class="pre_page" col="3" >
+                    <Label text="&#xf101;" class = "fa" />
+                </GridLayout>
+            </GridLayout>
+        </nsDrawer:RadSideDrawer.mainContent>
+    </nsDrawer:RadSideDrawer>
+</Page>
