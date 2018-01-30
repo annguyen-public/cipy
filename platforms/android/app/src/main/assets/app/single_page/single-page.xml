@@ -1,6 +1,4 @@
 <Page
-    loaded="loaded"
-    class="page"
     navigatingTo="onNavigatingTo"  
     xmlns:nsDrawer="nativescript-pro-ui/sidedrawer"
     xmlns:myDrawer="shared/my-drawer"
@@ -19,7 +17,7 @@
             tap="onDrawerButtonTap"
             ios.position="left">
         </ActionItem>
-        <Label class="action-bar-title" text="Lunch"></Label>
+        <Label class="action-bar-title" text="Recipe view"></Label>
     </ActionBar>
 
     <!--
@@ -49,7 +47,7 @@
                 Learn more about custom components and how they can be used in this documentation article:
                 http://docs.nativescript.org/ui/basics#custom-components
                 -->
-                <myDrawer:MyDrawer selectedPage="Lunch"/>
+                <myDrawer:MyDrawer selectedPage="Single"/>
             </StackLayout>
         </nsDrawer:RadSideDrawer.drawerContent>
 
@@ -58,32 +56,41 @@
         Always wrap content in a layout component.
         -->
         <nsDrawer:RadSideDrawer.mainContent>
-            <GridLayout columns="*,6*,*">
-                <GridLayout id="pre_page" class="pre_page" col="0" >
-                    <Label text="&#xf100;" class = "fa" />
-                </GridLayout>             
-                <GridLayout class="page-content" col="1" id="swipable">                
-                    <ListView items="{{ recipeList }}" id="recipeList" loadMoreItems="loadMoreRecipes" itemTap="listViewItemTap">
+            <GridLayout class="page-content" rows="auto,auto,*" >
+                <SegmentedBar row="0" selectedIndex="{{ selectedDay }}" >
+                    <SegmentedBar.items>
+                        <SegmentedBarItem title="Giới thiệu" />
+                        <SegmentedBarItem title="{{ 'Nguyên liệu\n' + ingredient_num}}" />
+                        <SegmentedBarItem title="{{ 'Thực hiện\n' + cooking_time + ' ph'}}" />
+                    </SegmentedBar.items>
+                </SegmentedBar>                                            
+                <GridLayout row="1"  class="over-view" rows="auto,*,*" visibility="{{ isDisp_over_view ? 'visible' : 'collapsed' }}" >
+                    <Image src="{{ img_src }}" class="single-recipe-image" row="0" />
+                    <Label text="{{ recipe_name }}" class="single-recipe-name" row="0" />
+                    <TextView text="{{ recipe_overview }}" row="1" editable="false" backgroundColor="#f2eecb" />
+                </GridLayout>
+                <GridLayout row="2"  class="ingredients" rows="auto, *" visibility="{{ isDisp_ingredients ? 'visible' : 'collapsed' }}" >
+                    <Label text="Nguyên liệu" row="0" class="title" />
+                    <ListView items="{{ ingredients }}" row="1" id="ingredient_list" separatorColor="#00000000" itemTap="ingredient_toggle_selected" >
                         <ListView.itemTemplate>
-                            <GridLayout columns="*" rows="*,*" >
-                                <Image src="{{ img_src }}" col="0" row="0"></Image>
-                                <GridLayout columns="*,*" rows="*,*" col="0" row="1" >
-                                    <Label text="{{ recipe_name }}" col="0" row="0"/>
-                                    <Label text="{{ user_name }}" col="0" row="1"/>
-                                    <StackLayout orientation="horizontal" col="1" row="0">
-                                        <Label text="{{ star1 }}" class = "fa" />
-                                        <Label text="{{ star2 }}" class = "fa" />
-                                        <Label text="{{ star3 }}" class = "fa" />
-                                        <Label text="{{ star4 }}" class = "fa" />
-                                        <Label text="{{ star5 }}" class = "fa" />
-                                    </StackLayout>
-                                </GridLayout>
+                            <GridLayout columns="auto,*" backgroundColor="{{ selected ? '#63ff66' : '#fff' }}" >
+                                <Label col="0" text="{{ selected ? '&#xf14a;' : '&#xf055;' }}" class="fa" />
+                                <Label col="1" text="{{ quantity + unit_name + ' ' + name }}" />
                             </GridLayout>
                         </ListView.itemTemplate>
                     </ListView>
                 </GridLayout>
-                <GridLayout id="next_page" class="next_page" col="3" >
-                    <Label text="&#xf101;" class = "fa" />
+                <GridLayout row="3"  class="directions" rows="auto, *" visibility="{{ isDisp_directions ? 'visible' : 'collapsed' }}" >
+                    <Label text="Các bước thực hiện:" row="0" class="title" />
+                    <ListView items="{{ directions }}" row="1" id="direction_list" separatorColor="#00000000" itemTap="direction_toggle_selected" >
+                        <ListView.itemTemplate>
+                            <GridLayout columns="auto,*" backgroundColor="{{ selected ? '#63ff66' : '#fff' }}" >
+                                <Label col="0" text="{{ selected ? '&#xf14a;' : '&#xf055;' }}" class="fa" />
+                                
+                                <TextView text="{{ direct_order + ' ' + direction }}" row="1" editable="false" backgroundColor="#f2eecb" />
+                            </GridLayout>
+                        </ListView.itemTemplate>
+                    </ListView>
                 </GridLayout>
             </GridLayout>
         </nsDrawer:RadSideDrawer.mainContent>

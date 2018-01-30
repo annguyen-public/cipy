@@ -48,6 +48,30 @@ var pageData = new observableModule.fromObject({
 
 var loaded_offset = 0;
 const LOAD_LIMIT = 5;
+
+function NavigateTo(pre_next){    
+    var next_module = "";
+    var name = "fade";
+    if(pre_next == 'previous')
+    {
+        next_module = "lunch_page/lunch-page";
+        name = "slideRight";
+    }
+    else if(pre_next == 'next')
+    {
+        next_module = "breakfast_page/breakfast-page";
+        name = "slideLeft";
+    }
+
+    frameModule.topmost().navigate({
+        moduleName: next_module,
+        transition: {
+            duration: 0,
+            name: name
+        }
+    });
+}
+
 exports.loaded = function(args) {
     num = 0;
     loaded_offset = 0;
@@ -57,35 +81,28 @@ exports.loaded = function(args) {
     recipeList.load(loaded_offset);
     loaded_offset += LOAD_LIMIT;
 
-    var myStack = page.getViewById("recipeList");
-    /*myStack.on(gestures.GestureTypes.swipe, function (args) {
-        /*frameModule.topmost().navigate({
-            moduleName: "next-page"
-        });*/
-        /*console.log("swipped");
-    });*/
-    myStack.on(gestures.GestureTypes.swipe, function (args) {
-        var next_module = "";
-        var name = "fade";
-        if(args.direction == 2)
+    var recipesListView = page.getViewById("recipeList");
+    recipesListView.on(gestures.GestureTypes.swipe, function (args) {
+        if(args.direction == 1)
         {
-            next_module = "lunch_page/lunch-page";
-            name = "slideLeft";
+            NavigateTo('previous');
         }
-
-        frameModule.topmost().navigate({
-            moduleName: next_module,
-            transition: {
-                duration: 350,
-                name: name
-            }
-        });
+        else if(args.direction == 2)
+        {
+            NavigateTo('next');
+        }
         console.log("Swipe Direction: " + args.direction);
     });
 
-    /*myStack.on(gestures.GestureTypes.touch, function (args) {
-        console.log(args.action);
-    });*/
+    var pre_pageView = page.getViewById("pre_page");
+    pre_pageView.on(gestures.GestureTypes.tap, function (args) {
+        NavigateTo('previous');
+    });
+
+    var next_pageView = page.getViewById("next_page");
+    next_pageView.on(gestures.GestureTypes.tap, function (args) {
+        NavigateTo('next');
+    });
 };
 
 exports.loadMoreRecipes = function(args) {

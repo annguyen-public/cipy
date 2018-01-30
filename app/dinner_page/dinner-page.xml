@@ -58,7 +58,7 @@
         Always wrap content in a layout component.
         -->
         <nsDrawer:RadSideDrawer.mainContent>
-            <GridLayout columns="*,6*,*">
+            <GridLayout id="pre_page" columns="*,6*,*">
                 <GridLayout class="pre_page" col="0" >
                     <Label text="&#xf100;" class = "fa" />
                 </GridLayout>             
@@ -82,7 +82,7 @@
                         </ListView.itemTemplate>
                     </ListView>
                 </GridLayout>
-                <GridLayout class="pre_page" col="3" >
+                <GridLayout id="next_page" class="next_page" col="3" >
                     <Label text="&#xf101;" class = "fa" />
                 </GridLayout>
             </GridLayout>

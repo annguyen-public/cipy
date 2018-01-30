@@ -59,13 +59,13 @@
         -->
         <nsDrawer:RadSideDrawer.mainContent>
             <GridLayout columns="*,6*,*">
-                <GridLayout class="pre_page" col="0" >
+                <GridLayout id="pre_page" class="pre_page" col="0" >
                     <Label text="&#xf100;" class = "fa" />
                 </GridLayout>             
                 <GridLayout class="page-content" col="1" id="swipable">                
-                    <ListView items="{{ recipeList }}" id="recipeList" loadMoreItems="loadMoreRecipes" >
+                    <ListView items="{{ recipeList }}" id="recipeList" loadMoreItems="loadMoreRecipes" itemTap="listViewItemTap">
                         <ListView.itemTemplate>
-                            <GridLayout columns="*" rows="*,*">
+                            <GridLayout columns="*" rows="*,*" >
                                 <Image src="{{ img_src }}" col="0" row="0"></Image>
                                 <GridLayout columns="*,*" rows="*,*" col="0" row="1" >
                                     <Label text="{{ recipe_name }}" col="0" row="0"/>
@@ -82,7 +82,7 @@
                         </ListView.itemTemplate>
                     </ListView>
                 </GridLayout>
-                <GridLayout class="pre_page" col="3" >
+                <GridLayout id="next_page" class="next_page" col="3" >
                     <Label text="&#xf101;" class = "fa" />
                 </GridLayout>
             </GridLayout>

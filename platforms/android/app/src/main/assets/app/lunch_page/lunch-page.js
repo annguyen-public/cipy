@@ -48,6 +48,30 @@ var pageData = new observableModule.fromObject({
 
 var loaded_offset = 0;
 const LOAD_LIMIT = 5;
+
+function NavigateTo(pre_next){    
+    var next_module = "";
+    var name = "fade";
+    if(pre_next == 'previous')
+    {
+        next_module = "breakfast_page/breakfast-page";
+        name = "slideRight";
+    }
+    else if(pre_next == 'next')
+    {
+        next_module = "dinner_page/dinner-page";
+        name = "slideLeft";
+    }
+
+    frameModule.topmost().navigate({
+        moduleName: next_module,
+        transition: {
+            duration: 0,
+            name: name
+        }
+    });
+}
+
 exports.loaded = function(args) {
     num = 0;
     loaded_offset = 0;
@@ -57,44 +81,42 @@ exports.loaded = function(args) {
     recipeList.load(loaded_offset);
     loaded_offset += LOAD_LIMIT;
 
-    var myStack = page.getViewById("recipeList");
-    /*myStack.on(gestures.GestureTypes.swipe, function (args) {
-        /*frameModule.topmost().navigate({
-            moduleName: "next-page"
-        });*/
-        /*console.log("swipped");
-    });*/
-    myStack.on(gestures.GestureTypes.swipe, function (args) {
-        var next_module = "";
-        var name = "fade";
+    var recipesListView = page.getViewById("recipeList");
+    recipesListView.on(gestures.GestureTypes.swipe, function (args) {
         if(args.direction == 1)
         {
-            next_module = "breakfast_page/breakfast-page";
-            name = "slideRight";
+            NavigateTo('previous');
         }
         else if(args.direction == 2)
         {
-            next_module = "dinner_page/dinner-page";
-            name = "slideLeft";
+            NavigateTo('next');
         }
-
-        frameModule.topmost().navigate({
-            moduleName: next_module,
-            transition: {
-                duration: 350,
-                name: name
-            }
-        });
-        console.log("Swipe Direction: " + args.direction);
     });
 
-    /*myStack.on(gestures.GestureTypes.touch, function (args) {
-        console.log(args.action);
-    });*/
+    var pre_pageView = page.getViewById("pre_page");
+    pre_pageView.on(gestures.GestureTypes.tap, function (args) {
+        NavigateTo('previous');
+    });
+
+    var next_pageView = page.getViewById("next_page");
+    next_pageView.on(gestures.GestureTypes.tap, function (args) {
+        NavigateTo('next');
+    });
 };
 
 exports.loadMoreRecipes = function(args) {
-    //recipeList.empty();
     recipeList.load(loaded_offset);
     loaded_offset += LOAD_LIMIT;
+}
+
+exports.listViewItemTap = function(args) {
+    var tapped_recipe = args.view.bindingContext;
+    frameModule.topmost().navigate({
+        moduleName: 'single_page/single-page',
+        context: { tapped_recipe: tapped_recipe},
+        transition: {
+            duration: 0,
+            name: 'fade'
+        }
+    });
 }

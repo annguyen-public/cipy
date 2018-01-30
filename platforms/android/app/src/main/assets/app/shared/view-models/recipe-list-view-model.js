@@ -16,6 +16,7 @@ function RecipeListViewModel(items) {
             for (var i = 0; i < recipes.length; i++) {
                 var stars = point2star(recipes[i].point);
                 viewModel.push({
+                    recipe_id: recipes[i].id,
                     img_src: recipes[i].img_url,
                     recipe_name: recipes[i].recipe_name,
                     user_name: recipes[i].name,
